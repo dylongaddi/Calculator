@@ -1,16 +1,18 @@
 let current = 0
 
-let displayValue = document.querySelector('.number').textContent
+let displayValue = ''
+
+const numpad = document.querySelectorAll('#numpad > button');
+    numpad.forEach((button) => {
+        button.addEventListener('click', function () {
+            displayValue += this.textContent
+            updateDisplay()
+        });
+    });
 
 function updateDisplay () {
-    const numpad = document.querySelectorAll('#numpad > button');
-        numpad.forEach((button) => {
-            button.addEventListener('click', () => {
-                document.querySelector('.number').textContent = button.textContent
-            });
-        });
+    document.getElementById('displayNumber').textContent = displayValue
 }
-
 
 //function for choosing operator and calling operating functions
 function operate (operator, current, num) {
@@ -43,4 +45,3 @@ function multiply (current, num) {
     return current *= num
 }
 
-updateDisplay();
