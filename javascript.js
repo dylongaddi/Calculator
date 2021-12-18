@@ -33,15 +33,15 @@ function displaySolution() {
 }
 
 
-function getFirstNum(displayValue) {
+function getFirstNum() {
     firstNum = parseInt(displayValue)
 }
 
-function getSecondNum(displayValue) {
+function getSecondNum() {
     secondNum = parseInt(displayValue)
 }
 
-function updateDisplay (displayValue) {
+function updateDisplay () {
     document.getElementById('displayNumber').textContent = displayValue
 }
 
