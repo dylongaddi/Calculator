@@ -7,9 +7,9 @@ let operator = ''
 const numpad = document.querySelectorAll('.number');
     numpad.forEach((button) => {
         button.addEventListener('click', function () {
-            displayValue += parseInt(this.textContent)
+            displayValue += Number(this.textContent)
             updateDisplay();
-            if (operator === 'add' || operator === 'subtract' || operator === 'multiply' || operator === 'divide') {
+            if (operator === ' + ' || operator === ' - ' || operator === ' x ' || operator === ' ÷ ') {
                 getNum();
             } else {
                 getCurrent();
@@ -17,44 +17,49 @@ const numpad = document.querySelectorAll('.number');
         });
     });
 
-const operators = document.querySelectorAll('.operator');
-    operators.forEach((operator) => {
-        operator.addEventListener('click', chooseOperator)
 
+const operators = document.querySelectorAll('.operator');
+    operators.forEach((button) => {
+        button.addEventListener('click', function () {
+            resetDisplay();
+            operator = this.innerHTML
     });
+});
+    
+
+
+function displaySolution() {
+    
+}
+
 
 function getCurrent() {
     current = parseInt(displayValue)
 }
 
 function getNum() {
-    num 
+    num = parseInt(displayValue)
 }
-
-function chooseOperator () {
-    if (this.textContent === '+') {
-        operator = 'add'
-    }
-}
-
-console.log(operator)
 
 function updateDisplay () {
     document.getElementById('displayNumber').textContent = displayValue
 }
 
+function resetDisplay() {
+    displayValue = ''
+}
 
 
 
 //function for choosing operator and calling operating functions
 function operate (operator, current, num) {
-    if (operator === 'add') {
+    if (operator === ' + ') {
         return add(current, num);
-    } else if (operator === 'subtract') {
+    } else if (operator === ' - ') {
         return subtract(current, num);
-    } else if (operator === 'divide') {
+    } else if (operator === ' ÷ ') {
         return divide (current, num);
-    } else if (operator === 'multiply') {
+    } else if (operator === ' x ') {
         return multiply (current, num);
     }
 }
