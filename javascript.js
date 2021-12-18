@@ -1,18 +1,18 @@
-let current = 0
-let num = 0
-let displayValue = ''
-let operator = ''
+let firstNum = 0;
+let secondNum = 0;
+let displayValue = '';
+let operator = '';
 
 //controls for displaying numbers
 const numpad = document.querySelectorAll('.number');
     numpad.forEach((button) => {
         button.addEventListener('click', function () {
-            displayValue += Number(this.textContent)
+            displayValue += Number(this.textContent);
             updateDisplay();
             if (operator === ' + ' || operator === ' - ' || operator === ' x ' || operator === ' ÷ ') {
-                getNum();
+                getSecondNum();
             } else {
-                getCurrent();
+                getFirstNum();
             }
         });
     });
@@ -22,7 +22,7 @@ const operators = document.querySelectorAll('.operator');
     operators.forEach((button) => {
         button.addEventListener('click', function () {
             resetDisplay();
-            operator = this.innerHTML
+            operator = this.innerHTML;
     });
 });
     
@@ -33,15 +33,15 @@ function displaySolution() {
 }
 
 
-function getCurrent() {
-    current = parseInt(displayValue)
+function getFirstNum(displayValue) {
+    firstNum = parseInt(displayValue)
 }
 
-function getNum() {
-    num = parseInt(displayValue)
+function getSecondNum(displayValue) {
+    secondNum = parseInt(displayValue)
 }
 
-function updateDisplay () {
+function updateDisplay (displayValue) {
     document.getElementById('displayNumber').textContent = displayValue
 }
 
@@ -52,37 +52,37 @@ function resetDisplay() {
 
 
 //function for choosing operator and calling operating functions
-function operate (operator, current, num) {
+function operate (operator, firstNum, secondNum) {
     if (operator === ' + ') {
-        return add(current, num);
+        return add(firstNum, secondNum);
     } else if (operator === ' - ') {
-        return subtract(current, num);
+        return subtract(firstNum, secondNum);
     } else if (operator === ' ÷ ') {
-        return divide (current, num);
+        return divide (firstNum, secondNum);
     } else if (operator === ' x ') {
-        return multiply (current, num);
+        return multiply (firstNum, secondNum);
     }
 }
     
 
 //functions for operating numbers
-function add (current, num) {
-    return current += num
+function add (firstNum, secondNum) {
+    return firstNum += secondNum
 }
 
-function subtract(current, num) {
-    return current -= num
+function subtract(firstNum, secondNum) {
+    return firstNum -= secondNum
 }
 
-function divide (current, num) {
-    if (num === 0) {
+function divide (firstNum, secondNum) {
+    if (secondNum === 0) {
         return 'ERROR- CANNOT DIVIDE BY ZERO'
     } else {
-    return current /= num
+    return firstNum /= secondNum
     }
 }
 
-function multiply (current, num) {
-    return current *= num
+function multiply (firstNum, secondNum) {
+    return firstNum *= secondNum
 }
 
