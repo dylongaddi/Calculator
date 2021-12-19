@@ -17,7 +17,7 @@
             <p id='displayNumber'> 0 </p>
         </div>
         <div id ='topButtons' class="topButtons">
-                <button onclick=resetDisplay(); class="top"> clear </button>
+                <button  onclick=clearDisplay(); class="top"> clear </button>
                 <button class="top"> delete </button>
         </div>
         <div id= 'numpad' class="numpad">
@@ -35,7 +35,7 @@
                 <button class='operator'> - </button>
                 <button class='number'> 0 </button>
                 <button> . </button>
-                <button class='equals'> = </button>
+                <button onclick=displaySolution(); class='equals'> = </button>
                 <button class='operator'> + </button>
         </div>
     </div>

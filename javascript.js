@@ -29,9 +29,16 @@ const operators = document.querySelectorAll('.operator');
 
 
 function displaySolution() {
-    
+    displayValue = operate(operator, firstNum, secondNum);
+    updateDisplay();
+    operator = ''
+    firstNum = displayValue
 }
 
+function clearDisplay() {
+    resetDisplay();
+    document.getElementById('displayNumber').textContent = 0
+}
 
 function getFirstNum() {
     firstNum = parseInt(displayValue)
