@@ -16,7 +16,7 @@ const numpad = document.querySelectorAll('.number');
             button.style.backgroundColor = 'white'
         })
         button.addEventListener('click', function displayNumbers () {
-            displayValue += parseInt(this.textContent);
+            displayValue += parseFloat(this.textContent);
             updateDisplay();
             if (operator === ' + ' || operator === ' - ' || operator === ' x ' || operator === ' ÷ ') {
                 getSecondNum();
@@ -53,7 +53,7 @@ function displaySolution() {
         displayValue = operate(operator, firstNum, secondNum);
         updateDisplay();
         operator = '';
-        firstNum = parseInt(displayValue);
+        firstNum = parseFloat(displayValue);
         solution = displayValue;
         document.getElementById('equalsSign').textContent = '=';
         clearDisplayVariables();
@@ -77,12 +77,12 @@ function deleteNum () {
 
 function deleteSecondNum() {
     document.getElementById('secondNum').textContent = displayValue
-    secondNum = parseInt(displayValue)
+    secondNum = parseFloat(displayValue)
 }
 
 function deleteFirstNum() {
     document.getElementById('firstNum').textContent = displayValue
-    firstNum = parseInt(displayValue)
+    firstNum = parseFloat(displayValue)
 }
 
 
@@ -108,13 +108,13 @@ function clearDisplay() {
 }
 
 function getFirstNum() {
-    firstNum = parseInt(displayValue)
+    firstNum = parseFloat(displayValue)
     stringFirstNum = firstNum.toString();
     document.getElementById('firstNum').textContent = stringFirstNum;
 }
 
 function getSecondNum() {
-    secondNum = parseInt(displayValue)
+    secondNum = parseFloat(displayValue)
     stringSecondNum = secondNum.toString();
     document.getElementById('secondNum').textContent = stringSecondNum;
 }
